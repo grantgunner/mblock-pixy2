@@ -1,0 +1,215 @@
+{
+  "extensionName": "Pixy2CAM_SPI",
+  "description": "Pixy2 Camera on ICSP Port - Arduino Mode Only",
+  "version": "1.0.0 (2019-03-07)",
+  "author": "Grant Doherty",
+  "homepage": "https://github.com/grantgunner/mblock-pixy2",
+  "sort":0,
+  "javascriptURL":"",
+    "firmware":"1.0",
+    "extensionPort":0,
+  "blockSpecs": [      
+  [
+    "r",
+    "get blocks wait %d.bool sigmap %d.8bits maxblocks %d.8bits",
+    "get blocks",
+	true,
+	255,
+	255,
+      {
+        "inc" : "#include <SPI.h>\n#include \"Pixy2.h\"\n", 
+
+        "def" : "Pixy2 pixy;\n",
+        "setup" : "pixy.init();\n",
+        "work" : "pixy.ccc.getBlocks({0},(uint8_t) {1},(uint8_t) {2});",
+        "loop" : ""
+      }
+  ],
+  [
+    "r",
+    "get block %n signature",
+    "get block signature",
+	0,
+      {
+        "inc" : "#include <SPI.h>\n#include \"Pixy2.h\"\n", 
+
+        "def" : "Pixy2 pixy;\n",
+        "setup" : "pixy.init();\n",
+        "work" : "pixy.ccc.blocks[(int) {0}].m_signature",
+        "loop" : ""
+      }
+  ],
+  [
+    "r",
+    "get block %n x pos",
+    "get block x pos",
+	0,
+      {
+        "inc" : "#include <SPI.h>\n#include \"Pixy2.h\"\n", 
+
+        "def" : "Pixy2 pixy;\n",
+        "setup" : "pixy.init();\n",
+        "work" : "pixy.ccc.blocks[(int) {0}].m_x",
+        "loop" : ""
+      }
+  ],  
+  [
+    "r",
+    "get block %n y pos",
+    "get block y pos",
+	0,
+      {
+        "inc" : "#include <SPI.h>\n#include \"Pixy2.h\"\n", 
+
+        "def" : "Pixy2 pixy;\n",
+        "setup" : "pixy.init();\n",
+        "work" : "pixy.ccc.blocks[(int) {0}].m_y",
+        "loop" : ""
+      }
+  ],  
+  [
+    "r",
+    "get block %n width",
+    "get block width",
+	0,
+      {
+        "inc" : "#include <SPI.h>\n#include \"Pixy2.h\"\n", 
+
+        "def" : "Pixy2 pixy;\n",
+        "setup" : "pixy.init();\n",
+        "work" : "pixy.ccc.blocks[(int) {0}].m_width",
+        "loop" : ""
+      }
+  ],  
+  [
+    "r",
+    "get block %n height",
+    "get block height",
+	0,
+      {
+        "inc" : "#include <SPI.h>\n#include \"Pixy2.h\"\n", 
+
+        "def" : "Pixy2 pixy;\n",
+        "setup" : "pixy.init();\n",
+        "work" : "pixy.ccc.blocks[(int) {0}].m_height",
+        "loop" : ""
+      }
+  ],  
+  [
+    "r",
+    "get block %n angle",
+    "get block angle",
+	0,
+      {
+        "inc" : "#include <SPI.h>\n#include \"Pixy2.h\"\n", 
+
+        "def" : "Pixy2 pixy;\n",
+        "setup" : "pixy.init();\n",
+        "work" : "pixy.ccc.blocks[(int) {0}].m_angle",
+        "loop" : ""
+      }
+  ],  
+  [
+    "r",
+    "get block %n index",
+    "get block index",
+	0,
+      {
+        "inc" : "#include <SPI.h>\n#include \"Pixy2.h\"\n", 
+
+        "def" : "Pixy2 pixy;\n",
+        "setup" : "pixy.init();\n",
+        "work" : "pixy.ccc.blocks[(int) {0}].m_index",
+        "loop" : ""
+      }
+  ],  
+  [
+    "r",
+    "get block %n age",
+    "get block age",
+	0,
+      {
+        "inc" : "#include <SPI.h>\n#include \"Pixy2.h\"\n", 
+
+        "def" : "Pixy2 pixy;\n",
+        "setup" : "pixy.init();\n",
+        "work" : "pixy.ccc.blocks[(int) {0}].m_age",
+        "loop" : ""
+      }
+  ],  
+  [
+    "w",
+    "print block %n ",
+    "print block",
+	0,
+      {
+        "inc" : "#include <SPI.h>\n#include \"Pixy2.h\"\n", 
+
+        "def" : "Pixy2 pixy;\n",
+        "setup" : "pixy.init();\n",
+        "work" : "pixy.ccc.blocks[(int) {0}].print();\n",
+        "loop" : ""
+      }
+  ],
+  [
+    "w",
+    "set lamp top %d.digital bottom %d.digital",
+    "set lamp",
+	"on",
+	"on",
+      {
+        "inc" : "#include <SPI.h>\n#include \"Pixy2.h\"\n", 
+
+        "def" : "Pixy2 pixy;\n",
+        "setup" : "pixy.init();\n",
+        "work" : "pixy.setLamp({0},{1});\n",
+        "loop" : ""
+      }
+  ],
+  [
+    "w",
+    "set LED red %d.8bits green %d.8bits blue %d.8bits ",
+    "set LED",
+	0,
+	0,
+	0,
+      {
+        "inc" : "#include <SPI.h>\n#include \"Pixy2.h\"\n", 
+
+        "def" : "Pixy2 pixy;\n",
+        "setup" : "pixy.init();\n",
+        "work" : "pixy.setLED((uint8_t) {0},(uint8_t) {1},(uint8_t) {2});\n",
+        "loop" : ""
+      }
+  ],
+  [
+    "w",
+    "set servos pan %d.servoValues tilt %d.servoValues",
+    "set servos",
+	500,
+    500,	
+      {
+        "inc" : "#include <SPI.h>\n#include \"Pixy2.h\"\n", 
+
+        "def" : "Pixy2 pixy;\n",
+        "setup" : "pixy.init();\n",
+        "work" : "pixy.setServos((uint8_t) {0},(uint8_t) {1});\n",
+        "loop" : ""
+      }
+  ]],
+  "menus": {
+     "digital":["on","off"],
+	 "bool":["true","false"],
+	 "8bits":[0,255],
+	 "servoValues":[0,500,1000]
+  },
+  "values":{
+     "true":true,
+	 "false":false,
+	 "on":1,
+	 "off":0
+  },
+  "translators":{
+          
+  }
+}
