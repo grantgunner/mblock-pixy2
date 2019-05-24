@@ -1,7 +1,7 @@
 {
   "extensionName": "Pixy2CAM_SPI",
   "description": "Pixy2 Camera on ICSP Port - Arduino Mode Only",
-  "version": "1.0.0 (2019-03-07)",
+  "version": "1.0.1 (2019-05-24)",
   "author": "Grant Doherty",
   "homepage": "https://github.com/grantgunner/mblock-pixy2",
   "sort":0,
@@ -193,7 +193,7 @@
 
         "def" : "Pixy2 pixy;\n",
         "setup" : "pixy.init();\n",
-        "work" : "pixy.setServos((uint8_t) {0},(uint8_t) {1});\n",
+        "work" : "pixy.setServos((uint16_t) {0},(uint16_t) {1});\n",
         "loop" : ""
       }
   ]],

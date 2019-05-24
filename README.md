@@ -103,3 +103,7 @@ Arduino code: pixy.setServos()
 *Description:*
 Control the servo positions of the pan/tilt kit.
 (Sorry but I haven't tested this out much so not entirely sure if it is working correctly in terms of positions)
+
+## Revision history
+24-May-2019
+* changed SetServos to cast to 16 bit value instead of 8 bit
